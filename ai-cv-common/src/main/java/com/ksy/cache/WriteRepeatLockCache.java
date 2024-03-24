@@ -48,6 +48,8 @@ public class WriteRepeatLockCache {
         // 如果已经存在，就抛出业务异常，直接进行返回
         if (redisTemplate.hasKey(key)) {
             throw new BusinessException(HttpStatus.LOCKED.value(), "正在处理");
+
+
         }
     }
 
