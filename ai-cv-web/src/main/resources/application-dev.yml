@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    dynamic:
+      primary: master   #设置动态数据源的主数据源。这里设置为 master，表示主数据源是 master
+      strict: false     #设置是否严格模式。如果设置为 true，则当没有找到与当前数据源关联的数据源时，会抛出异常。这里设置为 false，表示不启用严格模式
+      hikari:
+        minimum-idle: 5
+        maximum-pool-size: 100
+        connection-timeout: 10000
+        connection-test-query: SELECT 1
+        max-lifetime: 30000
+        data-source-properties:
+          serverTimezone: Asia/Shanghai
+          characterEncoding: utf-8
+      datasource:
+        master:
+          url: jdbc:mysql://127.0.0.1:3306/volcanoes_cv?useUnicode=true&characterEncoding=utf8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8&allowMultiQueries=true
+          username: root
+          password: asdwww159753
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.zaxxer.hikari.HikariDataSource
+        slave_1:
+          url: jdbc:mysql://127.0.0.1:3306/volcanoes_cv?useUnicode=true&characterEncoding=utf8&relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+          username: root
+          password: asdwww159753
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.zaxxer.hikari.HikariDataSource
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1
+    password: asdwww159753
+    timeout: 6000   #设置连接 Redis 的超时时间，单位为毫秒，这里设置为 6000 毫秒
+    lettuce: #指定使用 Lettuce 作为连接 Redis 的客户
+      pool: #指定连接池的配置。
+        max-idle: 200   #连接池中保持的最大空闲连接数量，这里设置为 200。
+        min-idle: 100   #连接池中保持的最小空闲连接数量，这里设置为 100。
+        max-active: 200  #连接池中允许的最大连接数量，这里设置为 200。
+        max-wait: -1    #获取连接的最大等待时间，单位为毫秒，这里设置为 -1 表示无限等待。

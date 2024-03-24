@@ -1,0 +1,25 @@
+server:
+  port: 8818
+spring:
+  profiles:
+    active: dev   #引用对应配置文件
+  jackson:
+    default-property-inclusion: non_empty  #设置返回的json自动去掉为空的字符
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml,classpath:mapper/**/*.xml
+  type-aliases-package: com.ksy.domain
+logging:
+  pattern:
+    console: "%d %-5level %logger - [%L] - %msg%n"
+  level:
+    root: info
+    com.ksy.dao: debug
+    com.ksy.controller: debug
+  file:
+    max-size: 1000MB
+    path: D://data/logs/${ENV_PORT:8818}

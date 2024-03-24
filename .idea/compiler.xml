@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ai-cv-service" />
+        <module name="ai-cv-web" />
+        <module name="ai-cv-api" />
+        <module name="ai-cv-dao" />
+        <module name="ai-cv-common" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ai-cv" options="" />
+      <module name="ai-cv-api" options="-parameters" />
+      <module name="ai-cv-common" options="-parameters" />
+      <module name="ai-cv-dao" options="-parameters" />
+      <module name="ai-cv-service" options="-parameters" />
+      <module name="ai-cv-web" options="-parameters" />
+    </option>
+  </component>
+</project>
