@@ -34,6 +34,8 @@ public class BaseController {
     }
 
 
+
+
     @ExceptionHandler(Exception.class)
     public CvResult AllExceptionHandler(Exception e) {
         e.printStackTrace();
